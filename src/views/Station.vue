@@ -1,5 +1,5 @@
 <script setup>
-import { computed, nextTick, onMounted, ref, shallowRef } from 'vue'
+import { computed, nextTick, onMounted, ref, shallowRef, watch } from 'vue'
 import { RouterLink, useRoute, useRouter } from 'vue-router'
 import { byId, lineById, neighbors, transfersFor } from '../data/lines.js'
 import { parseLesson } from '../lib/markdown.js'
@@ -39,7 +39,14 @@ async function load() {
   await nextTick()
   mountDemos()
   observeToc()
+  if (route.query.s) setTimeout(() => scrollToId(String(route.query.s)), 60)
 }
+
+// переход из поиска на раздел этой же станции
+watch(
+  () => route.query.s,
+  (s) => s && !loading.value && scrollToId(String(s)),
+)
 
 function mountDemos() {
   if (!article.value) return

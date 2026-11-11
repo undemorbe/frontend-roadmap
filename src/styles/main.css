@@ -284,11 +284,135 @@ kbd {
 .theme-btn:hover {
   background: var(--paper-2);
 }
+/* ============ Поиск ============ */
+.search-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 10px 0 12px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: 600 14px var(--font-body);
+  cursor: pointer;
+  flex: none;
+}
+.search-btn:hover {
+  background: var(--paper-2);
+}
+.search-btn-kbd {
+  font-size: 12px;
+  padding: 1px 6px;
+}
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: color-mix(in srgb, var(--ink) 45%, transparent);
+  display: grid;
+  justify-items: center;
+  align-items: start;
+  padding: max(10vh, 16px) 16px 16px;
+}
+.search-box {
+  width: min(640px, 100%);
+  max-height: 78vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: 0 24px 60px rgb(0 0 0 / 0.3);
+  overflow: hidden;
+}
+.search-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-bottom: 2px solid var(--line);
+}
+.search-field input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: 500 18px var(--font-body);
+  outline: none;
+}
+.search-results {
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  overflow-y: auto;
+}
+.search-results li[role='option'] {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.search-results li.on {
+  background: var(--paper-2);
+  box-shadow: inset 4px 0 0 var(--c);
+}
+.search-results .badge-sm {
+  background: var(--c);
+  color: var(--ci);
+  flex: none;
+  margin-top: 1px;
+}
+.sr-text {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+.sr-title {
+  font-weight: 700;
+}
+.sr-title small {
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+.sr-snippet {
+  font-size: 13px;
+  color: var(--ink-soft);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sr-empty {
+  padding: 16px 12px;
+  color: var(--ink-soft);
+}
+.search-help {
+  margin: 0;
+  padding: 8px 16px;
+  border-top: 2px solid var(--line);
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+.search-help kbd {
+  margin-right: 2px;
+}
+
 @media (max-width: 640px) {
   .logo-text,
   .nav-sub,
-  .hp-bar {
+  .hp-bar,
+  .search-btn-text,
+  .search-btn-kbd {
     display: none;
+  }
+  .search-btn {
+    width: 40px;
+    padding: 0;
+    justify-content: center;
   }
   .head-nav {
     margin-left: auto;

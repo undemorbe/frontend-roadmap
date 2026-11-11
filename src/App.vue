@@ -3,6 +3,7 @@ import { computed, ref, watchEffect } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
 import { stations } from './data/lines.js'
 import { stationState } from './lib/progress.js'
+import SearchPalette from './components/SearchPalette.vue'
 
 const doneCount = computed(() => stations.filter((s) => stationState(s.id) === 'done').length)
 const pct = computed(() => Math.round((doneCount.value / stations.length) * 100))
@@ -42,6 +43,7 @@ function cycleTheme() {
         <RouterLink to="/" class="nav-link">Схема</RouterLink>
         <RouterLink to="/depot" class="nav-link">Депо <span class="nav-sub">песочница</span></RouterLink>
       </nav>
+      <SearchPalette />
       <div class="head-progress" :title="`Пройдено станций: ${doneCount} из ${stations.length}`">
         <span class="hp-num">{{ doneCount }}<small>/{{ stations.length }}</small></span>
         <span class="hp-bar"><i :style="{ width: pct + '%' }"></i></span>

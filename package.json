@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "selftest": "node scripts/selftest.mjs"
   },
   "dependencies": {
     "@codemirror/commands": "^6.11.1",
@@ -30,6 +31,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.10",
+    "playwright-core": "^1.64.1",
     "vite": "^8.3.6"
   }
 }

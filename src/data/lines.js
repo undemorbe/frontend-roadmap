@@ -75,9 +75,10 @@ export const lines = [
     title: 'Node · npm · Git · Vite',
     color: '#8B5A2B',
     ink: '#ffffff',
-    about: 'Рабочее окружение: терминал, npm, Git и сборщик Vite — от первого проекта до деплоя.',
+    about: 'Рабочее окружение: терминал, npm, DevTools, Git и сборщик Vite — от первого проекта до деплоя.',
     stations: [
       { id: 't1', title: 'Терминал, Node и npm' },
+      { id: 't6', title: 'DevTools и отладка' },
       { id: 't2', title: 'Git' },
       { id: 't3', title: 'Старт на Vite' },
       { id: 't4', title: 'Конфиг Vite и env' },
@@ -115,6 +116,7 @@ export const transfers = [
   ['h7', 'j9', 'Формы оживают через события'],
   ['c10', 'j9', 'Анимации по событиям'],
   ['j12', 't3', 'ES-модули — основа Vite'],
+  ['j4', 't6', 'Точки останова в функциях'],
   ['t3', 'v8', 'SFC собирает Vite'],
   ['j8', 'v1', 'Vue управляет DOM за вас'],
 ]
